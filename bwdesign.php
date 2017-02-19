@@ -1,0 +1,88 @@
+<?php 
+/**
+Plugin Name: bwdesign
+Depends: oik base plugin, oik fields, oik themes, oik-shortcodes
+Plugin URI: http://www.bobbingwide.com/blog/oik_plugins/bwdesign
+Description: Letter taxonomies for bobbingwidewebdesign.com	- pseudo grandchild theme
+Version: 0.0.0
+Author: bobbingwide
+Author URI: http://www.oik-plugins.com/author/bobbingwide
+Text Domain: bwdesign
+Domain Path: /languages/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+    Copyright 2017 Bobbing Wide (email : herb@bobbingwide.com )
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2,
+    as published by the Free Software Foundation.
+
+    You may NOT assume that you can use any other version of the GPL.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    The license for this software can likely be found here:
+    http://www.gnu.org/licenses/gpl-2.0.html
+
+*/
+
+
+/**
+ * Register the additional taxonomies for bwdesign
+ *
+ * Depends on oik-a2z for the "letters" taxonomy. oik-a2z automatically registers the
+ * filter that will set the taxonomy term from the title or content. 
+ *
+ */ 
+function bwdesign_loaded() {
+  add_action( 'oik_fields_loaded', 'bwdesign_oik_fields_loaded', 11 );
+	//add_filter( "query_post_type_letter_taxonomy_filters", "oik_shortcode_a2z_query_post_type_letter_taxonomy_filters", 11 );
+	add_action( "wp_enqueue_scripts", "bwdesign_enqueue_scripts" );
+	add_filter( 'genesis_footer_creds_text', "bwdesign_genesis_footer_creds_text", 11 );
+}
+
+/**
+ * Registers the letters taxonomy for oik plugins, themes and shortcodes 
+ *
+ * Associates it to the object types as required.
+ * Note: This association is used to automatically set the 
+ * filter hooks which automatically set the taxonomy terms for a post
+ * from the title and/or content. 
+ * 
+ */ 
+function bwdesign_oik_fields_loaded() {
+	register_taxonomy_for_object_type( "letters", "page" ); 
+	bw_register_field_for_object_type( "letters", "page" );
+	
+	bw_register_custom_tags( "letters", "oik-plugins", "Letters" );
+	bw_register_field_for_object_type( "letters", "oik-plugins" );
+	
+	register_taxonomy_for_object_type( "letters", "oik-themes" );
+	bw_register_field_for_object_type( "letters", "oik-themes" );
+	
+	register_taxonomy_for_object_type( "letters", "oik_shortcodes" );
+	bw_register_field_for_object_type( "letters", "oik_shortcodes" );
+
+}
+
+/**
+ * Enqueues bwlink.css for styling of bobbing wide
+ */
+function bwdesign_enqueue_scripts() {
+	wp_enqueue_style( 'bwlink-css', WP_PLUGIN_URL . '/oik-bob-bing-wide/bwlink.css', array() );
+}
+
+/**
+ * Appends even more stuff to the footer credits.
+ */
+function bwdesign_genesis_footer_creds_text( $text ) { 
+	$text .= "[div more][wp v p m][ediv]"; 
+	$text .= "[div class=bwlogo][bw cp=h][ediv]";
+	return( $text );
+}
+
+bwdesign_loaded();
