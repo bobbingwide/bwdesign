@@ -1,0 +1,10 @@
+/**
+ * Custom CSS for bwdesign plugin 
+ * a bespoke plugin for bobbingwidewebdesign.com 
+ */
+ 
+div.bwlogo {
+	font-weight: bold;
+	margin-top: 20px;
+}
+/// @import url('../../plugins/oik-bob-bing-wide/bwlink.css' );

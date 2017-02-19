@@ -74,6 +74,7 @@ function bwdesign_oik_fields_loaded() {
  */
 function bwdesign_enqueue_scripts() {
 	wp_enqueue_style( 'bwlink-css', WP_PLUGIN_URL . '/oik-bob-bing-wide/bwlink.css', array() );
+	wp_enqueue_style( 'bwdesign-css', oik_url( "css/bwdesign.css", "bwdesign" ), array() );
 }
 
 /**
