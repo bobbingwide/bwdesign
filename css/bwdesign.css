@@ -1,10 +1,28 @@
 /**
  * Custom CSS for bwdesign plugin 
- * a bespoke plugin for bobbingwidewebdesign.com 
+ * a bespoke plugin for bobbingwidewebdesign.com
+ * 
+ * Here we style the .content and .content-sidebar for single blog posts
+ * so that they're stacked.
  */
  
 div.bwlogo {
 	font-weight: bold;
 	margin-top: 20px;
 }
-/// @import url('../../plugins/oik-bob-bing-wide/bwlink.css' );
+
+.single-post .content,
+.single-post .content-sidebar,
+.single-post .sidebar-primary {
+	width: 100% ;
+}
+
+footer span.label,
+footer span.sep {
+	font-size: 12px;
+}
+
+footer div {
+	font-size: 12px;
+}
+

@@ -43,6 +43,7 @@ function bwdesign_loaded() {
 	//add_filter( "query_post_type_letter_taxonomy_filters", "oik_shortcode_a2z_query_post_type_letter_taxonomy_filters", 11 );
 	add_action( "wp_enqueue_scripts", "bwdesign_enqueue_scripts" );
 	add_filter( 'genesis_footer_creds_text', "bwdesign_genesis_footer_creds_text", 11 );
+	add_action( 'genesis_entry_footer', 'bwdesign_genesis_entry_footer', 11 );
 }
 
 /**
@@ -66,6 +67,11 @@ function bwdesign_oik_fields_loaded() {
 	
 	register_taxonomy_for_object_type( "letters", "oik_shortcodes" );
 	bw_register_field_for_object_type( "letters", "oik_shortcodes" );
+	
+	bw_register_field( "_plugin_ref", "noderef", "Component", array( "#type" => array( "oik-plugins", "oik-themes" ), "#multiple" => 5, "#optional" => true ) );
+	
+	bw_register_field_for_object_type( "_plugin_ref", "post" );
+	bw_register_field_for_object_type( "_plugin_ref", "page" );
 
 }
 
@@ -84,6 +90,18 @@ function bwdesign_genesis_footer_creds_text( $text ) {
 	$text .= "[div more][wp v p m][ediv]"; 
 	$text .= "[div class=bwlogo][bw cp=h][ediv]";
 	return( $text );
+}
+
+/**
+ * Adds [bw_fields] for single posts only
+ * 
+ */
+
+function bwdesign_genesis_entry_footer() {
+	$post = get_post();
+	if ( $post->post_type == "post" ) {
+		echo bw_do_shortcode( "[bw_fields]" );
+	}
 }
 
 bwdesign_loaded();
