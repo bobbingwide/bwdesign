@@ -4,7 +4,7 @@ Plugin Name: bwdesign
 Depends: oik base plugin, oik fields, oik themes, oik-shortcodes
 Plugin URI: http://www.bobbingwide.com/blog/oik_plugins/bwdesign
 Description: Letter taxonomies for bobbingwidewebdesign.com	- pseudo grandchild theme
-Version: 0.0.0
+Version: 0.0.1
 Author: bobbingwide
 Author URI: http://www.oik-plugins.com/author/bobbingwide
 Text Domain: bwdesign
@@ -34,8 +34,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /**
  * Register the additional taxonomies for bwdesign
  *
- * Depends on oik-a2z for the "letters" taxonomy. oik-a2z automatically registers the
- * filter that will set the taxonomy term from the title or content. 
+ * - Depends on oik-a2z for the "letters" taxonomy. 
+ * - oik-a2z automatically registers the filter that will set the taxonomy term from the title or content. 
  *
  */ 
 function bwdesign_loaded() {
@@ -47,7 +47,10 @@ function bwdesign_loaded() {
 }
 
 /**
- * Registers the letters taxonomy for oik plugins, themes and shortcodes 
+ * Implements 'oik_fields_loaded' for bobbinwidewebdesign.com
+ *
+ * * Registers the letters taxonomy for oik plugins, themes and shortcodes 
+ * * Registers the _plugin_ref for posts and pages
  *
  * Associates it to the object types as required.
  * Note: This association is used to automatically set the 
@@ -80,7 +83,11 @@ function bwdesign_oik_fields_loaded() {
  */
 function bwdesign_enqueue_scripts() {
 	wp_enqueue_style( 'bwlink-css', WP_PLUGIN_URL . '/oik-bob-bing-wide/bwlink.css', array() );
-	wp_enqueue_style( 'bwdesign-css', oik_url( "css/bwdesign.css", "bwdesign" ), array() );
+	$timestamp = null;
+	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+		$timestamp = filemtime( __DIR__ . '/css/bwdesign.css' );
+	}
+	wp_enqueue_style( 'bwdesign-css', oik_url( "css/bwdesign.css", "bwdesign" ), array(), $timestamp );
 }
 
 /**

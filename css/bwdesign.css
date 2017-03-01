@@ -2,15 +2,15 @@
  * Custom CSS for bwdesign plugin 
  * a bespoke plugin for bobbingwidewebdesign.com
  * 
- * Here we style the .content and .content-sidebar for single blog posts
- * so that they're stacked.
- */
  
 div.bwlogo {
 	font-weight: bold;
 	margin-top: 20px;
 }
-
+/* 
+ * Here we style the .content and .content-sidebar for single blog posts
+ * so that they're stacked.
+ */
 .single-post .content,
 .single-post .content-sidebar,
 .single-post .sidebar-primary {
@@ -25,4 +25,13 @@ footer span.sep {
 footer div {
 	font-size: 12px;
 }
+
+a.bw_logo img {
+	margin-top: 20px;
+	background-color: #cccccc !important;
+}
+
+a.bw_logo img:hover {
+	background-color: #222222 !important;
+		}
 
