@@ -41,7 +41,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 function bwdesign_loaded() {
   add_action( 'oik_fields_loaded', 'bwdesign_oik_fields_loaded', 11 );
 	//add_filter( "query_post_type_letter_taxonomy_filters", "oik_shortcode_a2z_query_post_type_letter_taxonomy_filters", 11 );
-	add_action( "wp_enqueue_scripts", "bwdesign_enqueue_scripts" );
+	add_action( "wp_enqueue_scripts", "bwdesign_enqueue_scripts", 12 );
 	add_filter( 'genesis_footer_creds_text', "bwdesign_genesis_footer_creds_text", 11 );
 	add_action( 'genesis_entry_footer', 'bwdesign_genesis_entry_footer', 11 );
 }
@@ -80,6 +80,8 @@ function bwdesign_oik_fields_loaded() {
 
 /**
  * Enqueues bwlink.css for styling of bobbing wide
+ * 
+ * Note: This is enqueued after oik-custom.css ( priority 12 )
  */
 function bwdesign_enqueue_scripts() {
 	wp_enqueue_style( 'bwlink-css', WP_PLUGIN_URL . '/oik-bob-bing-wide/bwlink.css', array() );
@@ -92,6 +94,9 @@ function bwdesign_enqueue_scripts() {
 
 /**
  * Appends even more stuff to the footer credits.
+ * 
+ * @param string $text - the footer credits so far
+ * @return string a few additions to brighten the day
  */
 function bwdesign_genesis_footer_creds_text( $text ) { 
 	$text .= "[div more][wp v p m][ediv]"; 
@@ -101,9 +106,9 @@ function bwdesign_genesis_footer_creds_text( $text ) {
 
 /**
  * Adds [bw_fields] for single posts only
- * 
+ *
+ * @TODO This could fail if oik is not loaded. 
  */
-
 function bwdesign_genesis_entry_footer() {
 	$post = get_post();
 	if ( $post->post_type == "post" ) {

@@ -1,10 +1,10 @@
 === bwdesign ===
 Contributors: bobbingwide
 Donate link: http://www.oik-plugins.com/oik/oik-donate/
-Tags: shortcodes, smart, lazy
-Requires at least: 4.3
-Tested up to: 4.3
-Stable tag: VERSION
+Tags: grandchild, theme, thugin, pleme
+Requires at least: 4.7.2
+Tested up to: 4.7.2
+Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,12 +32,10 @@ Are these all rhetorical questions?
 
 == Upgrade Notice ==
 = 0.0.1 =
-Corrects the URL for bwdesign.css
-
+Improves display of single posts and the overall page layout.
 
 = 0.0.0 =
 New plugin, available from GitHub.
-
 
 == Changelog ==
 = 0.0.1 = 
@@ -45,7 +43,9 @@ New plugin, available from GitHub.
 * Changed: Add _plugin_ref to post and page, 
 * Changed: Added fields
 * Changed: Style single post
-* Fixed: Correct the URL for bwdesign.css - oik_url not oik_path
+* Changed: Cache bust bwdesign.css when SCRIPT_DEBUG is true
+* Changed: Using priority 12 ensure bwdesign.css is enqueued after oik-custom.css
+* Changed: Style the bw_logo image
  
 = 0.0.0 =
 * Added: New bespoke plugin for bobbingwidewebdesign.com

@@ -26,12 +26,15 @@ footer div {
 	font-size: 12px;
 }
 
+/**
+ * Note: This file is enqueued after oik-custom.css, so we don't need !important.
+ */
 a.bw_logo img {
 	margin-top: 20px;
-	background-color: #cccccc !important;
+	background-color: #cccccc;
 }
 
 a.bw_logo img:hover {
-	background-color: #222222 !important;
-		}
+	background-color: #333333;
+}
 
