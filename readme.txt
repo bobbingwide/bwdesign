@@ -22,7 +22,8 @@ The bwdesign plugin provides overrides to the genesis-oik theme for bobbingwidew
 1. Activate the bwdesign plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
-What's a mugin or pleme?
+What's a thugin or pleme?
+
 Why web design?
 Are these all rhetorical questions?
 

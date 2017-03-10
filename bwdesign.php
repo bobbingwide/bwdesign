@@ -44,6 +44,7 @@ function bwdesign_loaded() {
 	add_action( "wp_enqueue_scripts", "bwdesign_enqueue_scripts", 12 );
 	add_filter( 'genesis_footer_creds_text', "bwdesign_genesis_footer_creds_text", 11 );
 	add_action( 'genesis_entry_footer', 'bwdesign_genesis_entry_footer', 11 );
+	add_filter( "register_post_type_args", "bwdesign_register_post_type_args", 10, 2 );
 }
 
 /**
@@ -56,6 +57,8 @@ function bwdesign_loaded() {
  * Note: This association is used to automatically set the 
  * filter hooks which automatically set the taxonomy terms for a post
  * from the title and/or content. 
+ * 
+ * We don't use the oik_letters taxonomy in bwdesign.
  * 
  */ 
 function bwdesign_oik_fields_loaded() {
@@ -75,6 +78,18 @@ function bwdesign_oik_fields_loaded() {
 	
 	bw_register_field_for_object_type( "_plugin_ref", "post" );
 	bw_register_field_for_object_type( "_plugin_ref", "page" );
+}
+	
+function bwdesign_register_post_type_args( $args, $post_type ) {
+	
+	$post_types = array( "post", "page", "oik-plugins", "attachment", "oik-themes" );
+	bw_trace2( $post_types, "post_types", false );
+	$add_clone = in_array( $post_type, $post_types );
+	if ( $add_clone ) {
+		$args['supports'][] = 'clone';
+	}
+	bw_trace2( $add_clone, "add_clone", true );
+	return( $args );
 
 }
 
