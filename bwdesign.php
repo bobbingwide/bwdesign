@@ -2,17 +2,17 @@
 /**
 Plugin Name: bwdesign
 Depends: oik base plugin, oik fields, oik themes, oik-shortcodes
-Plugin URI: http://www.bobbingwide.com/blog/oik_plugins/bwdesign
+Plugin URI: https://www.bobbingwide.com/blog/oik_plugins/bwdesign
 Description: Letter taxonomies for bobbingwidewebdesign.com	- pseudo grandchild theme
-Version: 0.0.1
+Version: 0.0.2
 Author: bobbingwide
-Author URI: http://www.oik-plugins.com/author/bobbingwide
+Author URI: https://www.oik-plugins.com/author/bobbingwide
 Text Domain: bwdesign
 Domain Path: /languages/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-    Copyright 2017 Bobbing Wide (email : herb@bobbingwide.com )
+    Copyright 2017, 2018 Bobbing Wide (email : herb@bobbingwide.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License version 2,

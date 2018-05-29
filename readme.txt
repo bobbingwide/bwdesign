@@ -1,10 +1,10 @@
 === bwdesign ===
 Contributors: bobbingwide
-Donate link: http://www.oik-plugins.com/oik/oik-donate/
+Donate link: https://www.oik-plugins.com/oik/oik-donate/
 Tags: grandchild, theme, thugin, pleme
 Requires at least: 4.7.2
-Tested up to: 4.7.2
-Stable tag: 0.0.1
+Tested up to: 4.9.6
+Stable tag: 0.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ Are these all rhetorical questions?
 1. bwdesign in action
 
 == Upgrade Notice ==
+= 0.0.2 = 
+Improves display of Home page and blog archives.
+
 = 0.0.1 =
 Improves display of single posts and the overall page layout.
 
@@ -39,6 +42,9 @@ Improves display of single posts and the overall page layout.
 New plugin, available from GitHub.
 
 == Changelog ==
+= 0.0.2 = 
+* Changed: Only display [bw_fields] when post really is single [github bobbingwide bwdesign issues 1]
+
 = 0.0.1 = 
 * Changed: Add [bw_fields] to genesis_entry_footer for single-post
 * Changed: Add _plugin_ref to post and page, 
