@@ -126,7 +126,7 @@ function bwdesign_genesis_footer_creds_text( $text ) {
  */
 function bwdesign_genesis_entry_footer() {
 	$post = get_post();
-	if ( $post->post_type == "post" ) {
+	if ( $post->post_type == "post" && is_single() ) {
 		echo bw_do_shortcode( "[bw_fields]" );
 	}
 }
